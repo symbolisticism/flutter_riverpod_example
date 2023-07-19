@@ -19,5 +19,6 @@ class NumberNotifier extends StateNotifier<int> {
   }
 }
 
+// create a notifier provider that points back to the notifier
 final numberProvider =
     StateNotifierProvider<NumberNotifier, int>((ref) => NumberNotifier());
