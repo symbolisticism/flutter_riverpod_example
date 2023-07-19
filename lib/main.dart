@@ -38,7 +38,7 @@ class _MyAppState extends ConsumerState<MyApp> {
         title: const Text('Riverpod Example'),
         actions: [
           IconButton(
-            onPressed: provider.reset, // call 'subtract' function from notifier
+            onPressed: provider.reset, // call 'reset' function from notifier
             icon: const Icon(Icons.restart_alt_rounded),
           ),
           const SizedBox(width: 10),
