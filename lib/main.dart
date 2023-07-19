@@ -5,13 +5,15 @@ import 'package:riverpod_example/providers/numbers_provider.dart';
 void main() {
   runApp(
     // add ProviderScope
-    MaterialApp(
+    ProviderScope(
+      child: MaterialApp(
         home: const MyApp(),
         theme: ThemeData.light(
           useMaterial3: true,
         ),
       ),
     ),
+  );
 }
 
 class MyApp extends ConsumerStatefulWidget {
@@ -25,18 +27,26 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     // add reference to provider state
+    final number = ref.watch(numberProvider);
     // add reference to notifier in order to access functions
+    final provider = ref.watch(numberProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Riverpod Example'),
         actions: [
           IconButton(
-            onPressed: // call 'subtract' function from notifier,
+            onPressed: provider.reset, // call 'subtract' function from notifier
+            icon: const Icon(Icons.restart_alt_rounded),
+          ),
+          const SizedBox(width: 10),
+          IconButton(
+            onPressed:
+                provider.subtract, // call 'subtract' function from notifier
             icon: const Icon(Icons.remove),
           ),
           const SizedBox(width: 10),
           IconButton(
-            onPressed: // call 'add' function from notifier,
+            onPressed: provider.add, // call 'add' function from notifier
             icon: const Icon(Icons.add),
           ),
         ],
@@ -44,7 +54,8 @@ class _MyAppState extends ConsumerState<MyApp> {
       ),
       body: Center(
         child: Text(
-          // put your reference to the provider here - don't forget to add .toString() on the end,
+          // put your reference to the provider here - don't forget to add .toString() on the end
+          number.toString(),
           style: const TextStyle(fontSize: 48),
         ),
       ),
