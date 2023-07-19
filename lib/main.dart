@@ -16,13 +16,16 @@ void main() {
   );
 }
 
+// make this a ConsumerStatefulWidget
 class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
+  // make this ConsumerState<MyApp>
   ConsumerState<MyApp> createState() => _MyAppState();
 }
 
+// make this ConsumerState<MyApp>
 class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
