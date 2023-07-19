@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_example/providers/numbers_provider.dart';
+// import flutter_riverpod.dart
+// import numbers_provider.dart
 
 void main() {
   runApp(
@@ -14,14 +14,17 @@ void main() {
   );
 }
 
-class MyApp extends ConsumerStatefulWidget {
+// make this a ConsumerStatefulWidget
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  ConsumerState<MyApp> createState() => _MyAppState();
+  // make this ConsumerState<MyApp>
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends ConsumerState<MyApp> {
+// make this ConsumerState<MyApp>
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // add reference to provider state
